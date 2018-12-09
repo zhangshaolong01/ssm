@@ -15,15 +15,15 @@ import junit.framework.TestCase;
  * 配置spring和junit整合，junit启动时加载springIOC容器 spring-test,junit
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-// 告诉junit spring配置文件
-@ContextConfiguration({ "classpath:applicationContext.xml"})
+//spring配置文件
+@ContextConfiguration(locations = { "classpath:applicationContext.xml"})
 public class UserServiceImplTest extends TestCase {
 	@Autowired
 	public IUserService userService;
 	
 	@Test 
 	public void getUserByIdTest(){
-		User user = userService.getUserById(1);
+		User user = userService.getUserById(13);
 		System.out.println(user.getUserName());
 	}
 }
